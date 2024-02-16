@@ -1,14 +1,11 @@
 import React from "react";
-import {
-  Grid,
-  Header,
-  Form,
-  Button,
-  FormField,
-  Message,
-} from "semantic-ui-react";
+import { Grid, Form, Button } from "semantic-ui-react";
 
-const Login: React.FC = () => {
+interface LoginProps {
+  onButtonClick: (componentName: string) => void;
+}
+
+const Login: React.FC<LoginProps> = ({ onButtonClick }) => {
   return (
     <Grid.Column
       style={{
@@ -26,6 +23,7 @@ const Login: React.FC = () => {
           cursor: "pointer",
           fontSize: "10px",
         }}
+        onClick={() => onButtonClick("help")}
       />
 
       <Grid>
@@ -45,7 +43,7 @@ const Login: React.FC = () => {
             />
           </Grid.Row>
 
-          <Grid.Row >
+          <Grid.Row>
             <Button
               basic
               content="Forgot password?"
@@ -56,6 +54,7 @@ const Login: React.FC = () => {
                 cursor: "pointer",
                 fontSize: "10px",
               }}
+              onClick={() => onButtonClick("forgotPassword")}
             />
           </Grid.Row>
 
